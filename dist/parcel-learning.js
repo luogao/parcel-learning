@@ -17997,7 +17997,7 @@ var HelloMessage = function (_React$Component) {
 }(_react2.default.Component);
 
 var mountNode = document.getElementById("app");
-_reactDom2.default.render(_react2.default.createElement(HelloMessage, { name: "Jane" }), mountNode);
+_reactDom2.default.render(_react2.default.createElement(HelloMessage, { name: "Roy" }), mountNode);
 },{"react":7,"react-dom":6,"./index.css":3,"./index.scss":4}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
