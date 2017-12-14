@@ -1,3 +1,35 @@
-h1{
-    color: rgb(54, 138, 113);
+$blue: #1875e7;
+$white: #d0d4da;
+$side: left;
+@mixin left($value: 10px) {
+    float: left;
+    margin-left: $value;
+}
+
+@mixin rounded($vert, $horz, $radius: 10px) {
+    border-#{$vert}-#{$horz}-radius: $radius;
+    -moz-border-radius-#{$vert}#{$horz}: $radius;
+    -webkit-border-#{$vert}-#{$horz}-radius: $radius;
+}
+
+h1 {
+    color: $white;
+    border: 1px solid $white;
+    @include left(50px);
+    @include rounded(top, right, 50px);
+    @include rounded(top, left, 50px);
+    overflow: hidden;
+    transition: all .3s;
+}
+
+@for $i from 1 to 10 {
+    .border-#{$i} {
+        border: #{$i}px solid blue;
+    }
+}
+
+@for $i from 1 to 10 {
+    .border-#{$i*5} {
+        border: #{$i*5}px solid blue;
+    }
 }

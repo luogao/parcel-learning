@@ -157,25 +157,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],23:[function(require,module,exports) {
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-'use strict';
-
-var emptyObject = {};
-
-if ("development" !== 'production') {
-  Object.freeze(emptyObject);
-}
-
-module.exports = emptyObject;
-},{}],19:[function(require,module,exports) {
+},{}],20:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -212,7 +194,25 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],11:[function(require,module,exports) {
+},{}],25:[function(require,module,exports) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+'use strict';
+
+var emptyObject = {};
+
+if ("development" !== 'production') {
+  Object.freeze(emptyObject);
+}
+
+module.exports = emptyObject;
+},{}],9:[function(require,module,exports) {
 /** @license React v16.2.0
  * react.production.min.js
  *
@@ -235,7 +235,7 @@ var U={Children:{map:function(a,b,e){if(null==a)return a;var c=[];T(a,c,null,b,e
 d=a.key,g=a.ref,k=a._owner;if(null!=b){void 0!==b.ref&&(g=b.ref,k=G.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var f=a.type.defaultProps;for(h in b)H.call(b,h)&&!I.hasOwnProperty(h)&&(c[h]=void 0===b[h]&&void 0!==f?f[h]:b[h])}var h=arguments.length-2;if(1===h)c.children=e;else if(1<h){f=Array(h);for(var l=0;l<h;l++)f[l]=arguments[l+2];c.children=f}return{$$typeof:r,type:a.type,key:d,ref:g,props:c,_owner:k}},createFactory:function(a){var b=J.bind(null,a);b.type=a;return b},
 isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:G,assign:m}},V=Object.freeze({default:U}),W=V&&U||V;module.exports=W["default"]?W["default"]:W;
 
-},{"object-assign":13,"fbjs/lib/emptyObject":23,"fbjs/lib/emptyFunction":19}],15:[function(require,module,exports) {
+},{"object-assign":13,"fbjs/lib/emptyFunction":20,"fbjs/lib/emptyObject":25}],15:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -249,7 +249,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],25:[function(require,module,exports) {
+},{}],16:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -303,7 +303,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-},{}],24:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -366,7 +366,7 @@ if ("development" !== 'production') {
 }
 
 module.exports = warning;
-},{"./emptyFunction":19}],14:[function(require,module,exports) {
+},{"./emptyFunction":20}],14:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -426,7 +426,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 }
 
 module.exports = checkPropTypes;
-},{"./lib/ReactPropTypesSecret":15,"fbjs/lib/invariant":25,"fbjs/lib/warning":24}],12:[function(require,module,exports) {
+},{"./lib/ReactPropTypesSecret":15,"fbjs/lib/invariant":16,"fbjs/lib/warning":17}],10:[function(require,module,exports) {
 /** @license React v16.2.0
  * react.development.js
  *
@@ -1778,7 +1778,7 @@ if ("development" !== "production") {
     module.exports = react;
   })();
 }
-},{"object-assign":13,"prop-types/checkPropTypes":14,"fbjs/lib/invariant":25,"fbjs/lib/warning":24,"fbjs/lib/emptyObject":23,"fbjs/lib/emptyFunction":19}],7:[function(require,module,exports) {
+},{"object-assign":13,"prop-types/checkPropTypes":14,"fbjs/lib/emptyObject":25,"fbjs/lib/invariant":16,"fbjs/lib/warning":17,"fbjs/lib/emptyFunction":20}],7:[function(require,module,exports) {
 'use strict';
 
 if ("development" === 'production') {
@@ -1786,7 +1786,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react.development.js');
 }
-},{"./cjs/react.production.min.js":11,"./cjs/react.development.js":12}],16:[function(require,module,exports) {
+},{"./cjs/react.production.min.js":9,"./cjs/react.development.js":10}],18:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1820,110 +1820,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],17:[function(require,module,exports) {
-'use strict';
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-/* eslint-disable fb-www/typeof-undefined */
-
-/**
- * Same as document.activeElement but wraps in a try-catch block. In IE it is
- * not safe to call document.activeElement if there is nothing focused.
- *
- * The activeElement will be null only if the document or document body is not
- * yet defined.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
- */
-function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || (typeof document !== 'undefined' ? document : undefined);
-  if (typeof doc === 'undefined') {
-    return null;
-  }
-  try {
-    return doc.activeElement || doc.body;
-  } catch (e) {
-    return doc.body;
-  }
-}
-
-module.exports = getActiveElement;
-},{}],18:[function(require,module,exports) {
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- * 
- */
-
-/*eslint-disable no-self-compare */
-
-'use strict';
-
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-/**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
- */
-function is(x, y) {
-  // SameValue algorithm
-  if (x === y) {
-    // Steps 1-5, 7-10
-    // Steps 6.b-6.e: +0 != -0
-    // Added the nonzero y check to make Flow happy, but it is redundant
-    return x !== 0 || y !== 0 || 1 / x === 1 / y;
-  } else {
-    // Step 6.a: NaN == NaN
-    return x !== x && y !== y;
-  }
-}
-
-/**
- * Performs equality by iterating through keys on an object and returning false
- * when any key has values which are not strictly equal between the arguments.
- * Returns true when the values of all keys are strictly equal.
- */
-function shallowEqual(objA, objB) {
-  if (is(objA, objB)) {
-    return true;
-  }
-
-  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
-    return false;
-  }
-
-  var keysA = Object.keys(objA);
-  var keysB = Object.keys(objB);
-
-  if (keysA.length !== keysB.length) {
-    return false;
-  }
-
-  // Test for A's keys different from B.
-  for (var i = 0; i < keysA.length; i++) {
-    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-module.exports = shallowEqual;
-},{}],20:[function(require,module,exports) {
+},{}],19:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -1998,7 +1895,44 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-},{"./emptyFunction":19}],31:[function(require,module,exports) {
+},{"./emptyFunction":20}],24:[function(require,module,exports) {
+'use strict';
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+/* eslint-disable fb-www/typeof-undefined */
+
+/**
+ * Same as document.activeElement but wraps in a try-catch block. In IE it is
+ * not safe to call document.activeElement if there is nothing focused.
+ *
+ * The activeElement will be null only if the document or document body is not
+ * yet defined.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
+ */
+function getActiveElement(doc) /*?DOMElement*/{
+  doc = doc || (typeof document !== 'undefined' ? document : undefined);
+  if (typeof doc === 'undefined') {
+    return null;
+  }
+  try {
+    return doc.activeElement || doc.body;
+  } catch (e) {
+    return doc.body;
+  }
+}
+
+module.exports = getActiveElement;
+},{}],31:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2044,7 +1978,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":31}],21:[function(require,module,exports) {
+},{"./isNode":31}],22:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2082,7 +2016,73 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":28}],22:[function(require,module,exports) {
+},{"./isTextNode":28}],21:[function(require,module,exports) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ * 
+ */
+
+/*eslint-disable no-self-compare */
+
+'use strict';
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+/**
+ * inlined Object.is polyfill to avoid requiring consumers ship their own
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ */
+function is(x, y) {
+  // SameValue algorithm
+  if (x === y) {
+    // Steps 1-5, 7-10
+    // Steps 6.b-6.e: +0 != -0
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    // Step 6.a: NaN == NaN
+    return x !== x && y !== y;
+  }
+}
+
+/**
+ * Performs equality by iterating through keys on an object and returning false
+ * when any key has values which are not strictly equal between the arguments.
+ * Returns true when the values of all keys are strictly equal.
+ */
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  // Test for A's keys different from B.
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = shallowEqual;
+},{}],23:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2107,7 +2107,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],9:[function(require,module,exports) {
+},{}],11:[function(require,module,exports) {
 /** @license React v16.2.0
  * react-dom.production.min.js
  *
@@ -2338,75 +2338,7 @@ var Sg={createPortal:Qg,findDOMNode:function(a){if(null==a)return null;if(1===a.
 E("40");return a._reactRootContainer?(Z.unbatchedUpdates(function(){Pg(null,null,a,!1,function(){a._reactRootContainer=null})}),!0):!1},unstable_createPortal:Qg,unstable_batchedUpdates:tc,unstable_deferredUpdates:Z.deferredUpdates,flushSync:Z.flushSync,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{EventPluginHub:mb,EventPluginRegistry:Va,EventPropagators:Cb,ReactControlledComponent:qc,ReactDOMComponentTree:sb,ReactDOMEventListener:xd}};
 Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",rendererPackageName:"react-dom"});var Tg=Object.freeze({default:Sg}),Ug=Tg&&Sg||Tg;module.exports=Ug["default"]?Ug["default"]:Ug;
 
-},{"react":7,"object-assign":13,"fbjs/lib/ExecutionEnvironment":16,"fbjs/lib/getActiveElement":17,"fbjs/lib/shallowEqual":18,"fbjs/lib/emptyFunction":19,"fbjs/lib/EventListener":20,"fbjs/lib/containsNode":21,"fbjs/lib/focusNode":22,"fbjs/lib/emptyObject":23}],30:[function(require,module,exports) {
-'use strict';
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var _uppercasePattern = /([A-Z])/g;
-
-/**
- * Hyphenates a camelcased string, for example:
- *
- *   > hyphenate('backgroundColor')
- *   < "background-color"
- *
- * For CSS style names, use `hyphenateStyleName` instead which works properly
- * with all vendor prefixes, including `ms`.
- *
- * @param {string} string
- * @return {string}
- */
-function hyphenate(string) {
-  return string.replace(_uppercasePattern, '-$1').toLowerCase();
-}
-
-module.exports = hyphenate;
-},{}],26:[function(require,module,exports) {
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-'use strict';
-
-var hyphenate = require('./hyphenate');
-
-var msPattern = /^ms-/;
-
-/**
- * Hyphenates a camelcased CSS property name, for example:
- *
- *   > hyphenateStyleName('backgroundColor')
- *   < "background-color"
- *   > hyphenateStyleName('MozTransition')
- *   < "-moz-transition"
- *   > hyphenateStyleName('msTransition')
- *   < "-ms-transition"
- *
- * As Modernizr suggests (http://modernizr.com/docs/#prefixed), an `ms` prefix
- * is converted to `-ms-`.
- *
- * @param {string} string
- * @return {string}
- */
-function hyphenateStyleName(string) {
-  return hyphenate(string).replace(msPattern, '-ms-');
-}
-
-module.exports = hyphenateStyleName;
-},{"./hyphenate":30}],29:[function(require,module,exports) {
+},{"react":7,"object-assign":13,"fbjs/lib/ExecutionEnvironment":18,"fbjs/lib/EventListener":19,"fbjs/lib/getActiveElement":24,"fbjs/lib/containsNode":22,"fbjs/lib/emptyFunction":20,"fbjs/lib/shallowEqual":21,"fbjs/lib/focusNode":23,"fbjs/lib/emptyObject":25}],29:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -2436,7 +2368,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],27:[function(require,module,exports) {
+},{}],26:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2474,7 +2406,75 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":29}],10:[function(require,module,exports) {
+},{"./camelize":29}],30:[function(require,module,exports) {
+'use strict';
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var _uppercasePattern = /([A-Z])/g;
+
+/**
+ * Hyphenates a camelcased string, for example:
+ *
+ *   > hyphenate('backgroundColor')
+ *   < "background-color"
+ *
+ * For CSS style names, use `hyphenateStyleName` instead which works properly
+ * with all vendor prefixes, including `ms`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function hyphenate(string) {
+  return string.replace(_uppercasePattern, '-$1').toLowerCase();
+}
+
+module.exports = hyphenate;
+},{}],27:[function(require,module,exports) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+'use strict';
+
+var hyphenate = require('./hyphenate');
+
+var msPattern = /^ms-/;
+
+/**
+ * Hyphenates a camelcased CSS property name, for example:
+ *
+ *   > hyphenateStyleName('backgroundColor')
+ *   < "background-color"
+ *   > hyphenateStyleName('MozTransition')
+ *   < "-moz-transition"
+ *   > hyphenateStyleName('msTransition')
+ *   < "-ms-transition"
+ *
+ * As Modernizr suggests (http://modernizr.com/docs/#prefixed), an `ms` prefix
+ * is converted to `-ms-`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function hyphenateStyleName(string) {
+  return hyphenate(string).replace(msPattern, '-ms-');
+}
+
+module.exports = hyphenateStyleName;
+},{"./hyphenate":30}],12:[function(require,module,exports) {
 /** @license React v16.2.0
  * react-dom.development.js
  *
@@ -17832,7 +17832,7 @@ if ("development" !== "production") {
     module.exports = reactDom;
   })();
 }
-},{"react":7,"object-assign":13,"prop-types/checkPropTypes":14,"fbjs/lib/warning":24,"fbjs/lib/EventListener":20,"fbjs/lib/invariant":25,"fbjs/lib/getActiveElement":17,"fbjs/lib/ExecutionEnvironment":16,"fbjs/lib/containsNode":21,"fbjs/lib/emptyFunction":19,"fbjs/lib/hyphenateStyleName":26,"fbjs/lib/focusNode":22,"fbjs/lib/camelizeStyleName":27,"fbjs/lib/emptyObject":23,"fbjs/lib/shallowEqual":18}],6:[function(require,module,exports) {
+},{"react":7,"object-assign":13,"prop-types/checkPropTypes":14,"fbjs/lib/invariant":16,"fbjs/lib/warning":17,"fbjs/lib/ExecutionEnvironment":18,"fbjs/lib/EventListener":19,"fbjs/lib/emptyFunction":20,"fbjs/lib/shallowEqual":21,"fbjs/lib/containsNode":22,"fbjs/lib/focusNode":23,"fbjs/lib/getActiveElement":24,"fbjs/lib/emptyObject":25,"fbjs/lib/camelizeStyleName":26,"fbjs/lib/hyphenateStyleName":27}],6:[function(require,module,exports) {
 'use strict';
 
 function checkDCE() {
@@ -17868,7 +17868,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.production.min.js":9,"./cjs/react-dom.development.js":10}],8:[function(require,module,exports) {
+},{"./cjs/react-dom.production.min.js":11,"./cjs/react-dom.development.js":12}],8:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -17971,21 +17971,35 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var HelloMessage = function (_React$Component) {
   _inherits(HelloMessage, _React$Component);
 
-  function HelloMessage() {
+  function HelloMessage(props) {
     _classCallCheck(this, HelloMessage);
 
-    return _possibleConstructorReturn(this, (HelloMessage.__proto__ || Object.getPrototypeOf(HelloMessage)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (HelloMessage.__proto__ || Object.getPrototypeOf(HelloMessage)).call(this, props));
+
+    _this.state = {
+      borderValue: 1
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
   }
 
   _createClass(HelloMessage, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      console.log(this);
+      this.setState({ borderValue: event.target.value });
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
         "div",
         null,
+        _react2.default.createElement("input", { value: this.state.borderValue, type: "range", onChange: this.handleChange, min: "0", max: "45", step: "5" }),
+        _react2.default.createElement("div", { style: { clear: 'both' } }),
         _react2.default.createElement(
           "h1",
-          null,
+          { className: "border-" + this.state.borderValue },
           "Hello ",
           this.props.name
         )
@@ -17997,7 +18011,7 @@ var HelloMessage = function (_React$Component) {
 }(_react2.default.Component);
 
 var mountNode = document.getElementById("app");
-_reactDom2.default.render(_react2.default.createElement(HelloMessage, { name: "Roy" }), mountNode);
+_reactDom2.default.render(_react2.default.createElement(HelloMessage, { name: "Sass" }), mountNode);
 },{"react":7,"react-dom":6,"./index.css":3,"./index.scss":4}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -18016,7 +18030,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent) {
-  var ws = new WebSocket('ws://localhost:63205/');
+  var ws = new WebSocket('ws://localhost:63935/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
