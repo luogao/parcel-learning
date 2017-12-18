@@ -19,7 +19,6 @@ class Item extends React.Component {
         }
     }
     handlerStatusChange() {
-        console.log(this.props)
         let status = !this.props.status
         this
             .props
@@ -56,11 +55,9 @@ class Item extends React.Component {
                                     ? '完成'
                                     : '待办'}
                             </span>
-                            <p onClick={this.deleteItem}>
-                                X
-                            </p>
-                            <button onClick={this.handlerStatusChange}> {this.props.status ? '完成了' : '未完成'} </button>
+                            <button onClick={this.handlerStatusChange}> {this.props.status ? '未完成' : '完成了'} </button>
                             <button onClick={this.editItem}>编辑</button>
+                            <button onClick={this.deleteItem}>删除</button>
                         </li>
                     )
                 }else{
