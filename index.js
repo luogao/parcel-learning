@@ -6,7 +6,7 @@ class HelloMessage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            borderValue: 1
+            borderValue: 5
         };
         this.handleChange = this.handleChange.bind(this);
     }
