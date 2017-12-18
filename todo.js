@@ -19,6 +19,9 @@ class Todo extends React.Component {
         this.deleteItem = this
             .deleteItem
             .bind(this)
+        this.updateItem = this
+            .updateItem
+            .bind(this)
     }
     addItem(event) {
         if (event.keyCode === 13) {
@@ -60,6 +63,13 @@ class Todo extends React.Component {
         this.setState({todos: this.state.todos})
         myStore.save(this.state.todos);
     }
+    updateItem(index,value) {
+        this
+            .state
+            .todos[index].title = value
+        this.setState({todos: this.state.todos})
+        myStore.save(this.state.todos);
+    }
 
     render() {
         return (
@@ -76,7 +86,8 @@ class Todo extends React.Component {
                                 {...todo}
                                 index={index}
                                 changeStatus={this.changeStatus}
-                                deleteItem={this.deleteItem}/>
+                                deleteItem={this.deleteItem}
+                                updateItem={this.updateItem}/>
                         })
 }
                 </ul>
